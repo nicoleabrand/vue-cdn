@@ -1,29 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- vue cdn -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div id="app">
-        <h1>{{ message }}</h1>
-        <input type="text" v-model="message">
-    </div>
 
-    <script>
-      const { createApp, ref } = Vue
-    
-      createApp({
-        setup() {
-          const message = ref('Hello vue!')
-          return {
-            message
-          }
+<head>
+  <!-- vue cdn -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class=”product-display”>
+      <div class=”product-container”>
+        <div class=”product-image”>
+          <img :src=image alt=”img-product” style="width: 20%;">
+        </div>
+        <div class=”product-info”>
+          <h1>T-Shirt</h1>
+          <p>in stock</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const { createApp, ref } = Vue
+
+    createApp({
+      setup() {
+        const message = ref('Hello vue!')
+        return {
+          message,
+          image: ref("assets/images/t-shirt-blue.png")
+
         }
-      }).mount('#app')
-    </script>
+      }
+    }).mount('#app')
+  </script>
 </body>
+
 </html>
